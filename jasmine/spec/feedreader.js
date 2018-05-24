@@ -74,11 +74,12 @@ $(function () {
              * clicked and does it hide when clicked again.
              */
 
-        it("menu changes on click", function () {
+        it('menu changes on click', function () {
             var menu = $('body');
-            $('.menu-icon-link').click();
+            var menuIcon = $('.menu-icon-link');
+            menuIcon.click();
             expect(menu.hasClass('menu-hidden')).not.toBe(true);
-            $('.menu-icon-link').click();
+            menuIcon.click();
             expect(menu.hasClass('menu-hidden')).toBe(true);
         })
 
@@ -86,18 +87,52 @@ $(function () {
     });
 
     /* TODO: Write a new test suite named "Initial Entries" */
+    describe('Initial Entries', function () {
 
-    /* TODO: Write a test that ensures when the loadFeed
-     * function is called and completes its work, there is at least
-     * a single .entry element within the .feed container.
-     * Remember, loadFeed() is asynchronous so this test will require
-     * the use of Jasmine's beforeEach and asynchronous done() function.
-     */
+        beforeEach(function (done) {
+            loadFeed(0, function () {
+                done();
+            });
+        });
+
+        /* TODO: Write a test that ensures when the loadFeed
+         * function is called and completes its work, there is at least
+         * a single .entry element within the .feed container.
+         * Remember, loadFeed() is asynchronous so this test will require
+         * the use of Jasmine's beforeEach and asynchronous done() function.
+         */
+
+        it('feed container should not be empty on load', function () {
+            var container = $('.feed');
+            expect(container).not.toBe(0);
+        })
+    });
+
 
     /* TODO: Write a new test suite named "New Feed Selection" */
+    describe('New Feed Selection', function () {
+        var container = $('.feed');
 
-    /* TODO: Write a test that ensures when a new feed is loaded
-     * by the loadFeed function that the content actually changes.
-     * Remember, loadFeed() is asynchronous.
-     */
+        //
+        beforeEach(function (done) {
+            loadFeed(0, function () {
+                firstEntry = container.html();
+                done();
+            });
+        });
+
+        beforeEach(function (done) {
+            loadFeed(1, function () {
+                secondEntry = container.html();
+                done();
+            });
+        });
+
+        it('feed entries are not the same', function () {
+            expect(firstEntry).not.toEqual(secondEntry);
+        })
+    });
 }());
+
+
+
