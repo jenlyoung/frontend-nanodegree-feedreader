@@ -12,4 +12,3 @@ In order to load this project, you can either:
 
 * click [here](https://jenlyoung.github.io/frontend-nanodegree-feedreader/), or
 
-* run the program locally by cloning the repository and then opening [index.html](index.html) in a browser.
