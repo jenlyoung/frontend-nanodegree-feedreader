@@ -10,6 +10,6 @@ The purpose of this project is reinforce the importance of test-driven developme
 
 In order to load this project, you can either:
 
-* click the link [here](https://jenlyoung.github.io/frontend-nanodegree-feedreader/).
+* click [here](https://jenlyoung.github.io/frontend-nanodegree-feedreader/), or
 
-* Run the program locally by cloning the repository and then open the index.html in a browser.
+* run the program locally by cloning the repository and then opening [index.html](index.html) in a browser.
