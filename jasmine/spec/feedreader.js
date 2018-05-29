@@ -103,8 +103,8 @@ $(function () {
          */
 
         it('feed container should not be empty on load', function () {
-            var container = $('.feed');
-            expect(container).not.toBe(0);
+            var entries = $('.feed .entry');
+            expect(entries.length).toBeGreaterThan(0);
         })
     });
 
